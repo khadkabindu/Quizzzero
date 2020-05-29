@@ -69,28 +69,110 @@ class QuestionsList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Container(
-        child: ListView.builder(
-            itemCount: 1,
-            itemBuilder: (context, index) {
-              return Container(
-                child: Column(
-                  children: <Widget>[
-                    SizedBox(
-                      height: 100.0,
-                    ),
-                    Padding(
-                      padding: EdgeInsets.all(15.0),
-                      child: Text(
-                        questions[0].question,
-                        style: TextStyle(fontSize: 20.0, color: Colors.white),
-                      ),
-                    ),
-                  ],
-                ),
-              );
-            }),
+    return MaterialApp(
+      home: Scaffold(
+        backgroundColor: Colors.blue,
+        appBar: AppBar(
+          elevation: 0.0,
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
+          actions: <Widget>[
+            IconButton(
+              icon: Icon(Icons.star_border),
+              onPressed: () {},
+            ),
+          ],
+        ),
+        body: PageView(
+          children: <Widget>[
+            Center(
+              child: Container(
+                child: ListView.builder(
+                    itemCount: 1,
+                    itemBuilder: (context, index) {
+                      return Container(
+                        child: Column(
+                          children: <Widget>[
+                            SizedBox(
+                              height: 100.0,
+                            ),
+                            Padding(
+                              padding: EdgeInsets.all(15.0),
+                              child: Text(
+                                questions[0].question,
+                                style: TextStyle(
+                                    fontSize: 20.0, color: Colors.white),
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.all(15.0),
+                              child: RaisedButton(
+                                onPressed: () {},
+                                child: Text('True'),
+                                color: Colors.green,
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.all(15.0),
+                              child: RaisedButton(
+                                onPressed: () {},
+                                child: Text('False'),
+                                color: Colors.red,
+                              ),
+                            ),
+                          ],
+                        ),
+                      );
+                    }),
+              ),
+            ),
+            Center(
+              child: Container(
+                child: ListView.builder(
+                    itemCount: 1,
+                    itemBuilder: (context, index) {
+                      return Container(
+                        child: Column(
+                          children: <Widget>[
+                            SizedBox(
+                              height: 100.0,
+                            ),
+                            Padding(
+                              padding: EdgeInsets.all(15.0),
+                              child: Text(
+                                questions[1].question,
+                                style: TextStyle(
+                                    fontSize: 20.0, color: Colors.white),
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.all(15.0),
+                              child: RaisedButton(
+                                onPressed: () {},
+                                child: Text('True'),
+                                color: Colors.green,
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.all(15.0),
+                              child: RaisedButton(
+                                onPressed: () {},
+                                child: Text('False'),
+                                color: Colors.red,
+                              ),
+                            ),
+                          ],
+                        ),
+                      );
+                    }),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
