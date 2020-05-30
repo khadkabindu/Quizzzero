@@ -62,10 +62,17 @@ class QuestionListPage extends StatelessWidget {
   }
 }
 
-class QuestionsList extends StatelessWidget {
+class QuestionsList extends StatefulWidget {
   final List<Questions> questions;
 
-  const QuestionsList({Key key, this.questions}) : super(key: key);
+  QuestionsList({Key key, this.questions}) : super(key: key);
+
+  @override
+  _QuestionsListState createState() => _QuestionsListState();
+}
+
+class _QuestionsListState extends State<QuestionsList> {
+  int questionNumber = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -103,7 +110,7 @@ class QuestionsList extends StatelessWidget {
                             Padding(
                               padding: EdgeInsets.all(15.0),
                               child: Text(
-                                questions[0].question,
+                                widget.questions[questionNumber].question,
                                 style: TextStyle(
                                     fontSize: 20.0, color: Colors.white),
                               ),
@@ -111,7 +118,11 @@ class QuestionsList extends StatelessWidget {
                             Padding(
                               padding: EdgeInsets.all(15.0),
                               child: RaisedButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  setState(() {
+                                    questionNumber++;
+                                  });
+                                },
                                 child: Text('True'),
                                 color: Colors.green,
                               ),
@@ -119,48 +130,11 @@ class QuestionsList extends StatelessWidget {
                             Padding(
                               padding: EdgeInsets.all(15.0),
                               child: RaisedButton(
-                                onPressed: () {},
-                                child: Text('False'),
-                                color: Colors.red,
-                              ),
-                            ),
-                          ],
-                        ),
-                      );
-                    }),
-              ),
-            ),
-            Center(
-              child: Container(
-                child: ListView.builder(
-                    itemCount: 1,
-                    itemBuilder: (context, index) {
-                      return Container(
-                        child: Column(
-                          children: <Widget>[
-                            SizedBox(
-                              height: 100.0,
-                            ),
-                            Padding(
-                              padding: EdgeInsets.all(15.0),
-                              child: Text(
-                                questions[1].question,
-                                style: TextStyle(
-                                    fontSize: 20.0, color: Colors.white),
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsets.all(15.0),
-                              child: RaisedButton(
-                                onPressed: () {},
-                                child: Text('True'),
-                                color: Colors.green,
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsets.all(15.0),
-                              child: RaisedButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  setState(() {
+                                    questionNumber++;
+                                  });
+                                },
                                 child: Text('False'),
                                 color: Colors.red,
                               ),
